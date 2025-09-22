@@ -1,0 +1,44 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+@{
+         var content = (ContentModels.HomeSlider)Model.Content;
+         var HomeSliderImage = content.Value<MediaWithCrops>("homeSliderImage");
+
+			// اجلب القيمة من ViewData
+   		 var slideIndex = ViewData["SlideIndex"] as int? ?? 0;
+    
+}
+<!-- Slide1 -->
+<div class="swiper-slide">
+	<div class="pbmit-slider-item">
+		<div class="pbmit-slider-bg" style="background-image: url(@HomeSliderImage?.MediaUrl());"></div>
+		<div class="container">
+			<div class="pbmit-slider-content">
+				<h5 class="pbmit-slider-subtitle transform-right transform-delay-1">
+					@content.Value("homeSliderTitle")
+				</h5>
+				<h1 class="pbmit-slider-title transform-right transform-delay-2">
+					@content.Value("homeSliderSubTitle")
+				</h1>
+				<div class="d-lg-flex align-items-center justify-content-end">
+					<div class="pbmit-slider-desc transform-center transform-delay-3">@content.Value("homeSliderDesc")</div>
+					<div class="pbmit-button ms-xl-5 ms-lg-3">
+						<div class="transform-bottom transform-delay-4">
+							<a href="@content.Value("homeSliderButtonLink")" class="pbmit-btn white">
+								<span class="pbmit-button-content-wrapper">
+									<span class="pbmit-button-icon">
+										<i class="pbmit-induyst-icon pbmit-induyst-icon-next"></i>
+									</span>
+									<span class="pbmit-button-text">@content.Value("homeSliderButtonTitle")</span>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

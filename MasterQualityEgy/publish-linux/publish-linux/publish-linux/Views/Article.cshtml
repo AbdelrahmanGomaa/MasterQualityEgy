@@ -1,0 +1,332 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+@{
+	Layout = "masterTemplate.cshtml";
+	var HomePage = Model.Root();
+	var parent = Model.Parent;
+	var blogDatee = Model.Value<DateTime>("date");
+	var BlogImagee = Model.Value<MediaWithCrops>("heroImage");
+
+
+}
+
+<!-- Title Bar -->
+<div class="pbmit-title-bar-wrapper">
+	<div class="container">
+		<div class="pbmit-title-bar-content">
+			<div class="pbmit-title-bar-content-inner">
+				<div class="pbmit-tbar">
+					<div class="pbmit-tbar-inner container">
+						<h1 class="pbmit-tbar-title">@Model.Value("title")</h1>
+					</div>
+				</div>
+				<div class="pbmit-breadcrumb">
+					<div class="pbmit-breadcrumb-inner">
+						<span>
+							<a title="@HomePage.Name" href="@HomePage.Url()" class="home"><span>@HomePage.Name</span></a>
+						</span>
+						<span class="sep"></span>
+						<span>
+							<a title="@parent.Name" href="@parent.Url()"><span>@parent.Name</span></a>
+						</span>
+						<span class="sep"></span>
+						<span><span class="post-root post post-post current-item"> @Model.Name</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Title Bar End-->
+<!-- Page Content -->
+<div class="page-content">
+
+	<!-- Blog Single Details -->
+	<section class="site-content blog-details">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 blog-left-col">
+					<div class="row">
+						<div class="col-md-12">
+							<article>
+								<div class="post blog-classic">
+									<div class="pbmit-img-wrapper">
+										<div class="pbmit-featured-img-wrapper">
+											<div class="pbmit-featured-wrapper">
+												<img src="@BlogImagee?.MediaUrl()" class="img-fluid" alt="@Model.Value("title")">
+											</div>
+										</div>
+										<span class="pbmit-meta pbmit-meta-date">
+											<span class="pbmit-date">@blogDatee.ToString("dd")</span>
+											<span class="pbmit-month">@blogDatee.ToString("MMM")</span>
+										</span>
+									</div>
+									<div class="pbmit-blog-classic-inner">
+										<div class="pbmit-blog-meta pbmit-blog-meta-top">
+											<span class="pbmit-meta pbmit-meta-author">
+												Category<a class="pbmit-author-link" href="javascript:void(0);">@Model.Value("articleCategory")</a>
+											</span>
+											@*<span class="pbmit-meta pbmit-meta-cat">
+												<a href="blog-single-details.html" rel="bookmark">Industrial</a>
+											</span>
+											<span class="pbmit-meta pbmit-meta-comments">
+												3 Comments
+											</span>*@
+										</div>
+										@*<h3 class="pbmit-post-title">
+											<a href="blog-single-details.html">Importance of Quality and Testing in Modern Factories</a>
+										</h3>*@
+										<div class="pbmit-entry-content">
+											<p class="pbmit-firstletter">
+												@Model.Value("articleBody")
+											</p>
+
+											@if (Model.HasValue("articleQuoteDesc"))
+											{
+
+												<blockquote>
+													<p>“ @Model.Value("articleQuoteDesc") ” <cite>@Model.Value("articleQuoteName")</cite></p>
+												</blockquote>
+
+											}
+
+											<div class="pbmit-block-columns row">
+
+												@{
+													var typedMultiMediaPicker = Model.Value<IEnumerable<MediaWithCrops>>("articalMedia");
+													foreach (var entry in typedMultiMediaPicker)
+													{
+
+														<div class="pbmit-block-column col-md-12 col-xl-6 full-width-1200">
+															<figure>
+																<img src="@entry?.MediaUrl()" class="img-fluid w-100" alt="@Model.Name">
+															</figure>
+														</div>
+													}
+												}
+											</div>
+											<p></p>
+										</div>
+										<div class="pbmit-blog-meta-bottom">
+											<div class="pbmit-blog-meta-bottom-left">
+
+
+												@if (Model.HasValue("articleTags"))
+												{
+													var tags = Model.Value<IEnumerable<string>>("articleTags");
+													<ul class="tagcloud">
+														@foreach (var tag in tags)
+														{
+
+															<li><a href="javascript:void(0);">@tag</a></li>
+
+														}
+													</ul>
+												}
+
+											</div>
+											<div class="pbmit-blog-meta-bottom-right">
+												<div class="pbmit-social-share">
+													<ul>
+														<li class="pbmit-social-li pbmit-social-li-facebook">
+															<a class="pbmit-popup" href="https://facebook.com/sharer/sharer.php?u=https://induyst-demo.pbminfotech.com/demo-01/2025/02/06/importance-of-quality-and-testing-in-modern-factories/&amp;title=Importance%20of%20Quality%20and%20Testing%20in%20Modern%20Factories" title="Share on Facebook">
+																<i class="pbmit-base-icon-facebook-squared"></i>
+															</a>
+														</li>
+														<li class="pbmit-social-li pbmit-social-li-twitter">
+															<a class="pbmit-popup" href="https://twitter.com/intent/tweet/?text=Importance%20of%20Quality%20and%20Testing%20in%20Modern%20Factories&amp;url=https://induyst-demo.pbminfotech.com/demo-01/2025/02/06/importance-of-quality-and-testing-in-modern-factories/" title="Share on X (Twitter)">
+																<i class="pbmit-base-icon-twitter-2"></i>
+															</a>
+														</li>
+														<li class="pbmit-social-li pbmit-social-li-linkedin">
+															<a class="pbmit-popup" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://induyst-demo.pbminfotech.com/demo-01/2025/02/06/importance-of-quality-and-testing-in-modern-factories/&amp;title=Importance%20of%20Quality%20and%20Testing%20in%20Modern%20Factories&amp;summary=Importance%20of%20Quality%20and%20Testing%20in%20Modern%20Factories&amp;source=https://induyst-demo.pbminfotech.com/demo-01/2025/02/06/importance-of-quality-and-testing-in-modern-factories/" title="Share on LinkedIn">
+																<i class="pbmit-base-icon-linkedin-squared"></i>
+															</a>
+														</li>
+														<li class="pbmit-social-li pbmit-social-li-instagram">
+															<a class="pbmit-popup" href="https://www.instagram.com/accounts/login/?hl=en" title="Share on Instagram">
+																<i class="pbmit-base-icon-instagram"></i>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								@* 								<nav class="navigation post-navigation" aria-label="Posts">
+									<div class="nav-links">
+										<div class="nav-previous">
+											<a href="blog-single-details.html" rel="prev">
+												<span class="pbmit-post-nav-icon">
+													<i class="pbmit-base-icon-arrow-left"></i>
+													<span class="pbmit-post-nav-head">Previous Post</span>
+												</span>
+												<span class="pbmit-post-nav-wrapper">
+													<span class="pbmit-post-nav nav-title">The Role of Energy Storage in the Transition to Renewables</span>
+												</span>
+											</a>
+										</div>
+										<div class="nav-next">
+											<a href="#" rel="next">
+												<span class="pbmit-post-nav-icon">
+													<span class="pbmit-post-nav-head">Next Post</span>
+													<i class="pbmit-base-icon-arrow-right"></i>
+												</span>
+												<span class="pbmit-post-nav-wrapper">
+													<span class="pbmit-post-nav nav-title">Role of Architecture in Disaster Relief and Resilience</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</nav>
+ *@
+								@* 								<div class="pbmit-author-box">
+									<div class="pbmit-author-image">
+										<img alt="" src="images/author-img.png" class="img-fluid">
+									</div>
+									<div class="pbmit-author-content">
+										<span class="pbmit-author-name">
+											<a href="blog-classic.html" title="Posted by admin" rel="author">Alex joy</a>
+										</span>
+										<p class="pbmit-text pbmit-author-bio">If there is an important point you should pay attention to in terms of your health, you should definitely inform the spa specialist before the massage. Thus, you will avoid any wrong application to any part of the body.</p>
+									</div>
+								</div>
+ *@							</article>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 blog-right-col">
+					<aside class="sidebar">
+						@* 						<aside class="widget widget-categories">
+							<h2 class="widget-title">Categories</h2>
+							<ul>
+								<li>
+									<span class="pbmit-cat-li">
+										<a href="blog-classic.html">Chemical</a>
+										<span class="pbmit-brackets">( 1 )</span>
+									</span>
+								</li>
+								<li>
+									<span class="pbmit-cat-li">
+										<a href="blog-classic.html">Construction</a>
+										<span class="pbmit-brackets">( 2 )</span>
+									</span>
+								</li>
+								<li>
+									<span class="pbmit-cat-li">
+										<a href="blog-classic.html">Engineering</a>
+										<span class="pbmit-brackets">( 2 )</span>
+									</span>
+								</li>
+								<li>
+									<span class="pbmit-cat-li">
+										<a href="blog-classic.html">Industrial</a>
+										<span class="pbmit-brackets">( 1 )</span>
+									</span>
+								</li>
+								<li>
+									<span class="pbmit-cat-li">
+										<a href="blog-classic.html">Logistics</a>
+										<span class="pbmit-brackets">( 2 )</span>
+									</span>
+								</li>
+								<li>
+									<span class="pbmit-cat-li">
+										<a href="blog-classic.html">Manufacturing</a>
+										<span class="pbmit-brackets">( 1 )</span>
+									</span>
+								</li>
+							</ul>
+						</aside>
+ *@						<aside class="widget widget-recent-post">
+							<h2 class="widget-title">Recent Post</h2>
+							<ul class="recent-post-list">
+
+
+
+								@{
+									var selection = Umbraco.Content(Guid.Parse("6225fd59-0f21-401f-9f0a-a2a6901bee8e"))
+									.ChildrenOfType("article")
+									.Where(x => x.IsVisible())
+									.OrderBy(x => x.CreateDate)
+									.Take(3);
+
+								}
+
+								@foreach (var item in selection)
+								{
+
+
+									<li class="recent-post-list-li">
+										<a class="recent-post-thum" href="@item.Url()">
+											<img src="@BlogImagee?.MediaUrl()" class="img-fluid" alt="@item.Name">
+										</a>
+										<div class="pbmit-rpw-content">
+											<span class="pbmit-rpw-title">
+												<a href="@item.Url()">@item.Value("title")</a>
+											</span>
+											<span class="pbmit-rpw-date">
+												<a href="@item.Url()">@blogDatee.ToString("dd-MMM-yyyy")</a>
+											</span>
+										</div>
+									</li>
+								}
+
+
+
+
+								@*<li class="recent-post-list-li">
+									<a class="recent-post-thum" href="blog-single-details.html">
+										<img src="images/recent-post/blog-img-01.webp" class="img-fluid" alt="">
+									</a>
+									<div class="pbmit-rpw-content">
+										<span class="pbmit-rpw-title">
+											<a href="blog-single-details.html">The Future of Technology in Urban Development</a>
+										</span>
+										<span class="pbmit-rpw-date">
+											<a href="blog-single-details.html">06 Feb 2025</a>
+										</span>
+									</div>
+								</li>*@
+
+
+
+							</ul>
+						</aside>
+						@* <aside class="widget pbmit-service-ad">
+							<div class="textwidget">
+								<div class="pbmit-blog-ads-box">
+									<h5 class="pbmit-ad-subheading">WE ARE BEST</h5>
+									<h4 class="pbmit-ad-heading">Manufacturing for <span class="pbmit-global-color"> Better Tomorrow</span></h4>
+									<div class="pbmit-ad-button">
+										<a href="tel:+0(123)456-789">
+											<span class="pbmit-button-text">+0(123)456-789</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</aside> *@
+
+						@* 						<aside class="widget widget-tag-cloud">
+							<h3 class="widget-title">Tag Cloud</h3>
+							<ul class="tagcloud">
+								<li><a href="#">Automotive</a></li>
+								<li><a href="#">Energy</a></li>
+								<li><a href="#">Factory</a></li>
+								<li><a href="#">Industry</a></li>
+								<li><a href="#">Retail</a></li>
+								<li><a href="#">Technology</a></li>
+							</ul>
+						</aside>
+ *@					</aside>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog Single Details End -->
+
+</div>
+<!-- Page Content End -->

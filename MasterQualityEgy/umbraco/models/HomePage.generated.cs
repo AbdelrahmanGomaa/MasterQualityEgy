@@ -138,6 +138,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string HeaderInfoText3 => this.Value<string>(_publishedValueFallback, "headerInfoText3");
 
 		///<summary>
+		/// HeaderLogoM
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("headerLogoM")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops HeaderLogoM => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "headerLogoM");
+
+		///<summary>
+		/// HeaderLogoS
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("headerLogoS")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops HeaderLogoS => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "headerLogoS");
+
+		///<summary>
 		/// HeaderText
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]

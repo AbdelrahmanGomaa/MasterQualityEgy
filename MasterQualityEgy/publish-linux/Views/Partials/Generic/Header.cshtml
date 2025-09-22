@@ -1,8 +1,14 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
 @{
-    var selection = Model.Root().Children().Where(x => x.IsVisible());
-    var HomePage = Model.Root();
+	var selection = Model.Root().Children().Where(x => x.IsVisible());
+	var HomePage = Model.Root();
 	var ContactPage = Umbraco.Content(Guid.Parse("456cf9a9-1fe2-42fd-9498-c48ad2ad4215"));
+	var HeaderLogoM = HomePage.Value<MediaWithCrops>("headerLogoM");
+	var HeaderLogoS = HomePage.Value<MediaWithCrops>("headerLogoS");
+
+
 
 }
 
@@ -18,8 +24,8 @@
 						<div class="site-branding">
 							<h1 class="site-title">
 								<a href="index-2.html">
-									<img class="pbmit-main-logo" src="~/images/logo-white.svg" alt="Induyst">
-									<img class="pbmit-sticky-logo" src="~/images/logo.svg" alt="Induyst">
+									<img class="pbmit-main-logo" src="@HeaderLogoM?.MediaUrl()" alt="Induyst">
+									<img class="pbmit-sticky-logo" src="@HeaderLogoS?.MediaUrl()" alt="Induyst">
 								</a>
 							</h1>
 						</div>
@@ -92,25 +98,25 @@
 							<div class="site-navigation">
 								<nav class="main-navigation pbmit-navbar main-menu navbar-expand-xl navbar-light" id="site-navigation">
 									<div>
-										
+
 										<ul class="navigation clearfix" id="pbmit-top-menu">
 
 
 											@if (!HomePage.Value<bool>("umbracoNaviHide"))
 											{
-											<li><a href="@HomePage.Url()">@(!(String.IsNullOrEmpty(HomePage.Value<String>("menuDisplayName"))) ? HomePage.Value("menuDisplayName") : HomePage.Name)</a></li>
+												<li><a href="@HomePage.Url()">@(!(String.IsNullOrEmpty(HomePage.Value<String>("menuDisplayName"))) ? HomePage.Value("menuDisplayName") : HomePage.Name)</a></li>
 											}
 
 											@foreach (var item in selection)
 											{
-											<li>
+												<li>
 													<a href="@item.Url()">@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? item.Value("menuDisplayName") : item.Name)</a>
 													@if (@item.Children.Where(x => x.IsVisible()).Any() && item.Name != "Blog")
 													{
 														<ul>
 															@foreach (var Child in item.Children.Where(x => x.IsVisible()))
 															{
-													<li class="dropdown"><a href="@Child.Url()">@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? Child.Value("menuDisplayName") : Child.Name)</a></li>
+																<li class="dropdown"><a href="@Child.Url()">@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? Child.Value("menuDisplayName") : Child.Name)</a></li>
 															}
 														</ul>
 													}
@@ -176,7 +182,7 @@
         <div class="control-group">
             <input id="key" name="key" type="text" class="search-field" placeholder="@Umbraco.GetDictionaryValue("Search")"
             value="@Context.Request.Query["key"]">
-            
+
         </div>
   </form>
 </div> *@

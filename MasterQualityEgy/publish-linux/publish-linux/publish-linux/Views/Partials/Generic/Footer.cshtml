@@ -1,0 +1,186 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+@{
+    var selectionMenu = Model.Root().Children().Where(x => x.IsVisible());
+	var HomePage = Model.Root();
+	var ContactPage = Umbraco.Content(Guid.Parse("456cf9a9-1fe2-42fd-9498-c48ad2ad4215"));
+
+}
+
+<!-- footer -->
+<footer class="site-footer pbmit-footer-style-1 pbmit-bg-color-blackish">
+	<div class="pbmit-footer-big-area-wrapper">
+		<div class="pbmit-footer-big-area">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-md-12 col-lg-6 pbmit-footer-left">
+						<h3>@HomePage.Value("footerTitle")</h3>
+					</div>
+					<div class="col-md-12 col-lg-6 text-lg-end">
+						<div class="pbmit-footer-logo">
+							<img class="pbmit-main-logo" src="images/logo-white.svg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pbmit-footer-contact-area-wrapper">
+		<div class="pbmit-footer-contact-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
+						<span>@HomePage.Value("footerAddress")</span>
+					</div>
+					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
+						<span><a href="https://induyst-demo.pbminfotech.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae9e5e4feebe9fecaeff2ebe7fae6efa4e9e5e7">[email&#160;protected]</a></span>
+					</div>
+					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
+						<span>@HomePage.Value("footerNumber")</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pbmit-footer-widget-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-3 pbmit-footer-widget">
+					<aside class="widget">
+						<h2 class="widget-title">@HomePage.Value("footerTitle1")</h2>
+
+
+						<ul class="menu">
+							 @foreach (var item in selectionMenu)
+                                {
+                                    <li>
+                                        <a href="@item.Url()">
+                                     @(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? item.Value("menuDisplayName") : item.Name)
+                                    </a></li>
+                                }
+							
+						</ul>
+
+
+					</aside>
+				</div>
+				<div class="col-md-6 col-lg-3 pbmit-footer-widget">
+					<aside class="widget">
+						<h2 class="widget-title">@HomePage.Value("footerTitle2")</h2>
+
+						@{
+							var selectionServices = Umbraco.Content(Guid.Parse("dd46c33a-0881-4db0-81d4-bd1d4886fcd1"))
+							.ChildrenOfType("serviceDetails")
+							.Where(x => x.IsVisible())
+							.OrderBy(x => x.Name)
+							.Take(5);
+						}		
+						<ul class="menu">
+								@foreach (var item in selectionServices)
+							{
+								<li>
+									<a href="@item.Url()">@item.Name()</a>
+								</li>
+							}
+						</ul>
+
+
+					</aside>
+				</div>
+				<div class="col-md-6 col-lg-3 pbmit-footer-widget">
+					<aside class="widget">
+						<h2 class="widget-title">@HomePage.Value("footerTitle3")</h2>
+
+
+						@{
+							var selectionPortfolio = Umbraco.Content(Guid.Parse("a7b61300-3281-4b05-80d0-6e171ab60165"))
+							.ChildrenOfType("portfolioCategories")
+							.Where(x => x.IsVisible())
+							.Take(5);
+						}
+						<ul class="menu">
+							@foreach (var item in selectionPortfolio)
+							{
+								<li>
+									<a href="@item.Url()">@item.Name()</a>
+								</li>
+							}
+						</ul>
+
+
+					</aside>
+				</div>
+				<div class="col-md-6 col-lg-3 pbmit-footer-widget">
+					<aside class="widget">
+						<h2 class="widget-title">@HomePage.Value("footerTitle4")</h2>
+
+
+						@{
+							var selection = Umbraco.Content(Guid.Parse("6225fd59-0f21-401f-9f0a-a2a6901bee8e"))
+							.ChildrenOfType("article")
+							.Where(x => x.IsVisible())
+							.OrderByDescending(x => x.CreateDate)
+							.Take(5);
+						}
+						<ul class="menu">
+							@foreach (var item in selection)
+							{
+								<li>
+									<a href="@item.Url()">@item.Name()</a>
+								</li>
+							}
+						</ul>
+
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pbmit-footer-text-area">
+		<div class="container">
+			<div class="pbmit-footer-text-inner">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="pbmit-footer-copyright-text-area">
+							Copyright © 2025
+							<a href="#">Induyst</a>, All Rights Reserved.
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class=" pbmit-footer-social-area">
+							<ul class="pbmit-social-links">
+								<li class="pbmit-social-li pbmit-social-facebook">
+									<a title="Facebook" href="@ContactPage.Value("fbLink")" target="_blank">
+										<span><i class="pbmit-base-icon-facebook-f"></i></span>
+									</a>
+								</li>
+								<li class="pbmit-social-li pbmit-social-twitter">
+									<a title="Twitter" href="@ContactPage.Value("instaLink")" target="_blank">
+										<span><i class="pbmit-base-icon-instagram"></i></span>
+									</a>
+								</li>
+								<li class="pbmit-social-li pbmit-social-youtube">
+									<a title="Youtube" href="@ContactPage.Value("lNLink")" target="_blank">
+										<span><i class="pbmit-base-icon-linkedin-in"></i></span>
+									</a>
+								</li>
+								<li class="pbmit-social-li pbmit-social-instagram">
+									<a title="Instagram" href="@ContactPage.Value("xLink")" target="_blank">
+										<span><i class="pbmit-base-icon-twitter-2"></i></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- footer End -->
+
+
+
+
+
