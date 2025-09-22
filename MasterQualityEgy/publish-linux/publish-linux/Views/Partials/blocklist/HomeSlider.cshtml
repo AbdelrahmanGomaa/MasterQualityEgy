@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListModel>
+@{
+    if (Model?.Any() != true) { return; }
+    var index = 101;
+}
+<div class="swiper-wrapper">
+    @foreach (var block in Model)
+    {
+        if (block?.ContentUdi == null) { continue; }
+        var data = block.Content;
+        
+        // مرر المتغير داخل ViewData
+        ViewData["SlideIndex"] = index;
+
+        @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
+
+        index++;
+    }
+</div>
