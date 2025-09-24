@@ -50,6 +50,54 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
+		/// ProductDesc
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productDesc")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString ProductDesc => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "productDesc");
+
+		///<summary>
+		/// ProductImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ProductImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "productImage");
+
+		///<summary>
+		/// ProductMedia
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productMedia")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> ProductMedia => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(_publishedValueFallback, "productMedia");
+
+		///<summary>
+		/// ProductName
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productName")]
+		public virtual string ProductName => this.Value<string>(_publishedValueFallback, "productName");
+
+		///<summary>
+		/// ProductSubTitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productSubTitle")]
+		public virtual string ProductSubTitle => this.Value<string>(_publishedValueFallback, "productSubTitle");
+
+		///<summary>
+		/// ProductSummary
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("productSummary")]
+		public virtual string ProductSummary => this.Value<string>(_publishedValueFallback, "productSummary");
+
+		///<summary>
 		/// Canonical: Used in SEO, see: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]

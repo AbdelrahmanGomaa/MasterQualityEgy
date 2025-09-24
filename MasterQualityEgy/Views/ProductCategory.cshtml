@@ -1,7 +1,13 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
 @{
 	Layout = "masterTemplate.cshtml";
+    var HomePage = Model.Root();
+    var parent = Model.Parent;
+
+
 }
 
 
@@ -12,16 +18,20 @@
 			<div class="pbmit-title-bar-content-inner">
 				<div class="pbmit-tbar">
 					<div class="pbmit-tbar-inner container">
-						<h1 class="pbmit-tbar-title"> Grid Col 3</h1>
+						<h1 class="pbmit-tbar-title">@Model.Name</h1>
 					</div>
 				</div>
 				<div class="pbmit-breadcrumb">
 					<div class="pbmit-breadcrumb-inner">
 						<span>
-							<a title="" href="#" class="home"><span>Induyst</span></a>
+                            <a title="" href="@HomePage.Url()" class="home"><span>@HomePage.Name</span></a>
 						</span>
+                        <span class="sep"></span>
+                        <span>
+                            <a title="" href="@parent.Url()"><span>@parent.Name</span></a>
+                        </span>
 						<span class="sep"></span>
-						<span><span class="post-root post post-post current-item"> Grid Col 3</span></span>
+                        <span><span class="post-root post post-post current-item">@Model.Name</span></span>
 					</div>
 				</div>
 			</div>
@@ -47,16 +57,17 @@
             
                 @foreach (var item in selection)
                 {
-                   
+
+                    var ProductImage = item.Value<MediaWithCrops>("productImage");
 
                         <article class="pbmit-team-style-1 col-md-6 col-lg-4 col-xl-3">
                                         <div class="pbminfotech-post-item">
                                             <div class="pbmit-featured-wrap">
                                                 <div class="pbmit-team-btn">
-                                                    <a class="pbmit-team-text" href="#">
+                                    @* <a class="pbmit-team-text" href="#">
                                                         <i class="pbmit-base-icon-share"></i>
                                                     </a>
-                                                    @*<div class="pbminfotech-box-social-links">
+                                                    <div class="pbminfotech-box-social-links">
                                                         <ul class="pbmit-social-links pbmit-team-social-links">
                                                             <li class="pbmit-social-li pbmit-social-facebook">
                                                                 <a href="#" title="Facebook" target="_blank">
@@ -84,7 +95,7 @@
                                                 <div class="pbmit-featured-inner">
                                                     <div class="pbmit-featured-img-wrapper">
                                                         <div class="pbmit-featured-wrapper">
-                                                            <img src="images/team/team-img-01.jpg" class="img-fluid" alt="">
+                                                        <img src="@ProductImage?.MediaUrl()" class="img-fluid" alt="@ProductImage?.Name">
                                                         </div>
                                                     </div>
                                                     <a class="pbmit-link" href="@item.Url()"></a>
@@ -92,9 +103,9 @@
                                             </div>
                                             <div class="pbminfotech-box-content">
                                                 <h3 class="pbmit-team-title">
-                                                    <a href="@item.Url()">Roman Amata</a>
+                                            <a href="@item.Url()">@item.Value("productName")</a>
                                                 </h3>
-                                                <div class="pbminfotech-box-team-position">Technical Lead</div>
+                                            <div class="pbminfotech-box-team-position">@item.Value("productSubTitle")</div>
                                             </div>
                                         </div>
                                     </article>
