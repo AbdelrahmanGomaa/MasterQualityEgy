@@ -5,7 +5,7 @@
 @{
 	Layout = "masterTemplate.cshtml";
 	var HomePage = Model.Root();
-	var parent = Model.Parent;
+	var GrandParent = Model.Parent?.Parent;
 	var blogDatee = Model.Value<DateTime>("date");
 	var BlogImagee = Model.Value<MediaWithCrops>("heroImage");
 
@@ -29,7 +29,7 @@
 						</span>
 						<span class="sep"></span>
 						<span>
-							<a title="@parent.Name" href="@parent.Url()"><span>@parent.Name</span></a>
+							<a title="@GrandParent.Name" href="@GrandParent.Url()"><span>@GrandParent.Name</span></a>
 						</span>
 						<span class="sep"></span>
 						<span><span class="post-root post post-post current-item"> @Model.Name</span></span>

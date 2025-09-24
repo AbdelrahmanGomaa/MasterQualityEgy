@@ -97,21 +97,22 @@
 						<h2 class="widget-title">@HomePage.Value("footerTitle3")</h2>
 
 
-					@* 	@{
-							var selectionPortfolio = Umbraco.Content(Guid.Parse("a7b61300-3281-4b05-80d0-6e171ab60165"))
-							.ChildrenOfType("portfolioCategories")
+
+						@{
+							var selectionProducts = Umbraco.Content(Guid.Parse("7e538a0b-b7a5-4b56-b4b8-fccddc6439a3"))
+							.ChildrenOfType("productCategory")
 							.Where(x => x.IsVisible())
-							.Take(5);
+							.OrderBy(x => x.Name)
+							.Take(4);
 						}
 						<ul class="menu">
-							@foreach (var item in selectionPortfolio)
+							@foreach (var item in selectionProducts)
 							{
 								<li>
 									<a href="@item.Url()">@item.Name()</a>
 								</li>
 							}
-						</ul> *@
-
+						</ul>
 
 					</aside>
 				</div>
