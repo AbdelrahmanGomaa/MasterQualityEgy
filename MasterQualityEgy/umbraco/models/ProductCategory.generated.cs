@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>About</summary>
-	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, ISEO
+	/// <summary>Product Category</summary>
+	[PublishedModel("productCategory")]
+	public partial class ProductCategory : PublishedContentModel, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		public new const string ModelTypeAlias = "about";
+		public new const string ModelTypeAlias = "productCategory";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<About, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<ProductCategory, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public About(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public ProductCategory(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,232 +50,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// AboutCardImage1
+		/// ProductCategoryName
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCardImage1")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AboutCardImage1 => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "aboutCardImage1");
+		[ImplementPropertyType("portfolioCategoryName")]
+		public virtual string PortfolioCategoryName => this.Value<string>(_publishedValueFallback, "portfolioCategoryName");
 
 		///<summary>
-		/// AboutCardImage2
+		/// ProductCategoryImage
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCardImage2")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AboutCardImage2 => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "aboutCardImage2");
+		[ImplementPropertyType("productCategoryImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ProductCategoryImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "productCategoryImage");
 
 		///<summary>
-		/// AboutCardLink1
+		/// ProductCategoryTitle
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCardLink1")]
-		public virtual string AboutCardLink1 => this.Value<string>(_publishedValueFallback, "aboutCardLink1");
-
-		///<summary>
-		/// AboutCardText1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCardText1")]
-		public virtual string AboutCardText1 => this.Value<string>(_publishedValueFallback, "aboutCardText1");
-
-		///<summary>
-		/// AboutCardText2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCardText2")]
-		public virtual string AboutCardText2 => this.Value<string>(_publishedValueFallback, "aboutCardText2");
-
-		///<summary>
-		/// AboutCardText3: Number Input Only
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[ImplementPropertyType("aboutCardText3")]
-		public virtual int AboutCardText3 => this.Value<int>(_publishedValueFallback, "aboutCardText3");
-
-		///<summary>
-		/// AboutCardText4
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCardText4")]
-		public virtual string AboutCardText4 => this.Value<string>(_publishedValueFallback, "aboutCardText4");
-
-		///<summary>
-		/// AboutClientsSubTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutClientsSubTitle")]
-		public virtual string AboutClientsSubTitle => this.Value<string>(_publishedValueFallback, "aboutClientsSubTitle");
-
-		///<summary>
-		/// AboutClientsTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutClientsTitle")]
-		public virtual string AboutClientsTitle => this.Value<string>(_publishedValueFallback, "aboutClientsTitle");
-
-		///<summary>
-		/// AboutHeaderImage
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutHeaderImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AboutHeaderImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "aboutHeaderImage");
-
-		///<summary>
-		/// AboutHeaderTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutHeaderTitle")]
-		public virtual string AboutHeaderTitle => this.Value<string>(_publishedValueFallback, "aboutHeaderTitle");
-
-		///<summary>
-		/// AboutOurClients
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutOurClients")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel AboutOurClients => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "aboutOurClients");
-
-		///<summary>
-		/// AboutPointDesc1
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutPointDesc1")]
-		public virtual string AboutPointDesc1 => this.Value<string>(_publishedValueFallback, "aboutPointDesc1");
-
-		///<summary>
-		/// AboutPointDesc2
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutPointDesc2")]
-		public virtual string AboutPointDesc2 => this.Value<string>(_publishedValueFallback, "aboutPointDesc2");
-
-		///<summary>
-		/// AboutPointDesc3
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutPointDesc3")]
-		public virtual string AboutPointDesc3 => this.Value<string>(_publishedValueFallback, "aboutPointDesc3");
-
-		///<summary>
-		/// AboutPointNo1: Number Input Only
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[ImplementPropertyType("aboutPointNo1")]
-		public virtual int AboutPointNo1 => this.Value<int>(_publishedValueFallback, "aboutPointNo1");
-
-		///<summary>
-		/// AboutPointNo2: Number Input Only
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[ImplementPropertyType("aboutPointNo2")]
-		public virtual int AboutPointNo2 => this.Value<int>(_publishedValueFallback, "aboutPointNo2");
-
-		///<summary>
-		/// AboutPointNo3: Number Input Only
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[ImplementPropertyType("aboutPointNo3")]
-		public virtual int AboutPointNo3 => this.Value<int>(_publishedValueFallback, "aboutPointNo3");
-
-		///<summary>
-		/// AboutProcessSubTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutProcessSubTitle")]
-		public virtual string AboutProcessSubTitle => this.Value<string>(_publishedValueFallback, "aboutProcessSubTitle");
-
-		///<summary>
-		/// AboutProcessTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutProcessTitle")]
-		public virtual string AboutProcessTitle => this.Value<string>(_publishedValueFallback, "aboutProcessTitle");
-
-		///<summary>
-		/// AboutTestimonialImage
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutTestimonialImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AboutTestimonialImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "aboutTestimonialImage");
-
-		///<summary>
-		/// AboutTestimonials
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutTestimonials")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel AboutTestimonials => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "aboutTestimonials");
-
-		///<summary>
-		/// AboutTestimonialSubTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutTestimonialSubTitle")]
-		public virtual string AboutTestimonialSubTitle => this.Value<string>(_publishedValueFallback, "aboutTestimonialSubTitle");
-
-		///<summary>
-		/// AboutTestimonialTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutTestimonialTitle")]
-		public virtual string AboutTestimonialTitle => this.Value<string>(_publishedValueFallback, "aboutTestimonialTitle");
-
-		///<summary>
-		/// AboutValues
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutValues")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel AboutValues => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "aboutValues");
-
-		///<summary>
-		/// AboutWhyDesc
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutWhyDesc")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString AboutWhyDesc => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "aboutWhyDesc");
-
-		///<summary>
-		/// AboutWhySubTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutWhySubTitle")]
-		public virtual string AboutWhySubTitle => this.Value<string>(_publishedValueFallback, "aboutWhySubTitle");
-
-		///<summary>
-		/// AboutWhyTitle
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutWhyTitle")]
-		public virtual string AboutWhyTitle => this.Value<string>(_publishedValueFallback, "aboutWhyTitle");
-
-		///<summary>
-		/// AboutWorkProcesss
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.4.2+d920e93")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutWorkProcesss")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel AboutWorkProcesss => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "aboutWorkProcesss");
+		[ImplementPropertyType("productCategoryTitle")]
+		public virtual string ProductCategoryTitle => this.Value<string>(_publishedValueFallback, "productCategoryTitle");
 
 		///<summary>
 		/// Canonical: Used in SEO, see: http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html

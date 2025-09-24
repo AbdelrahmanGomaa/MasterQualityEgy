@@ -37,7 +37,7 @@
 						<span>@HomePage.Value("footerAddress")</span>
 					</div>
 					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
-						<span><a href="https://induyst-demo.pbminfotech.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae9e5e4feebe9fecaeff2ebe7fae6efa4e9e5e7">[email&#160;protected]</a></span>
+						<span><a href="mailto:@HomePage.Value("FooterEmail")" class="__cf_email__">@HomePage.Value("FooterEmail")</a></span>
 					</div>
 					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
 						<span>@HomePage.Value("footerNumber")</span>
@@ -97,7 +97,7 @@
 						<h2 class="widget-title">@HomePage.Value("footerTitle3")</h2>
 
 
-						@{
+					@* 	@{
 							var selectionPortfolio = Umbraco.Content(Guid.Parse("a7b61300-3281-4b05-80d0-6e171ab60165"))
 							.ChildrenOfType("portfolioCategories")
 							.Where(x => x.IsVisible())
@@ -110,7 +110,7 @@
 									<a href="@item.Url()">@item.Name()</a>
 								</li>
 							}
-						</ul>
+						</ul> *@
 
 
 					</aside>
@@ -148,7 +148,7 @@
 					<div class="col-md-6">
 						<div class="pbmit-footer-copyright-text-area">
 							Copyright © 2025
-							<a href="#">Induyst</a>, All Rights Reserved.
+							<a href="javascript:void(0);">Master Quality</a>, All Rights Reserved.
 						</div>
 					</div>
 					<div class="col-md-6">
