@@ -1,10 +1,13 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
 
 
 @{
-    var selectionMenu = Model.Root().Children().Where(x => x.IsVisible());
+	var selectionMenu = Model.Root().Children().Where(x => x.IsVisible());
 	var HomePage = Model.Root();
 	var ContactPage = Umbraco.Content(Guid.Parse("456cf9a9-1fe2-42fd-9498-c48ad2ad4215"));
+	var HeaderLogoM = HomePage.Value<MediaWithCrops>("headerLogoM");
 
 }
 
@@ -19,7 +22,7 @@
 					</div>
 					<div class="col-md-12 col-lg-6 text-lg-end">
 						<div class="pbmit-footer-logo">
-							<img class="pbmit-main-logo" src="images/logo-white.svg" alt="">
+							<img class="pbmit-main-logo" src="@HeaderLogoM?.MediaUrl()" alt="">
 						</div>
 					</div>
 				</div>
@@ -34,7 +37,7 @@
 						<span>@HomePage.Value("footerAddress")</span>
 					</div>
 					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
-						<span><a href="https://induyst-demo.pbminfotech.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae9e5e4feebe9fecaeff2ebe7fae6efa4e9e5e7">[email&#160;protected]</a></span>
+						<span><a href="mailto:@HomePage.Value("FooterEmail")" class="__cf_email__">@HomePage.Value("FooterEmail")</a></span>
 					</div>
 					<div class="col-md-12 col-lg-4 pbmit-footer-contact-box">
 						<span>@HomePage.Value("footerNumber")</span>
@@ -52,14 +55,15 @@
 
 
 						<ul class="menu">
-							 @foreach (var item in selectionMenu)
-                                {
-                                    <li>
-                                        <a href="@item.Url()">
-                                     @(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? item.Value("menuDisplayName") : item.Name)
-                                    </a></li>
-                                }
-							
+							@foreach (var item in selectionMenu)
+							{
+								<li>
+									<a href="@item.Url()">
+										@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? item.Value("menuDisplayName") : item.Name)
+									</a>
+								</li>
+							}
+
 						</ul>
 
 
@@ -75,9 +79,9 @@
 							.Where(x => x.IsVisible())
 							.OrderBy(x => x.Name)
 							.Take(5);
-						}		
+						}
 						<ul class="menu">
-								@foreach (var item in selectionServices)
+							@foreach (var item in selectionServices)
 							{
 								<li>
 									<a href="@item.Url()">@item.Name()</a>
@@ -93,7 +97,7 @@
 						<h2 class="widget-title">@HomePage.Value("footerTitle3")</h2>
 
 
-						@{
+					@* 	@{
 							var selectionPortfolio = Umbraco.Content(Guid.Parse("a7b61300-3281-4b05-80d0-6e171ab60165"))
 							.ChildrenOfType("portfolioCategories")
 							.Where(x => x.IsVisible())
@@ -106,7 +110,7 @@
 									<a href="@item.Url()">@item.Name()</a>
 								</li>
 							}
-						</ul>
+						</ul> *@
 
 
 					</aside>
@@ -144,7 +148,7 @@
 					<div class="col-md-6">
 						<div class="pbmit-footer-copyright-text-area">
 							Copyright © 2025
-							<a href="#">Induyst</a>, All Rights Reserved.
+							<a href="javascript:void(0);">Master Quality</a>, All Rights Reserved.
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -179,8 +183,3 @@
 	</div>
 </footer>
 <!-- footer End -->
-
-
-
-
-

@@ -1,8 +1,14 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
 @{
-    var selection = Model.Root().Children().Where(x => x.IsVisible());
-    var HomePage = Model.Root();
+	var selection = Model.Root().Children().Where(x => x.IsVisible());
+	var HomePage = Model.Root();
 	var ContactPage = Umbraco.Content(Guid.Parse("456cf9a9-1fe2-42fd-9498-c48ad2ad4215"));
+	var HeaderLogoM = HomePage.Value<MediaWithCrops>("headerLogoM");
+	var HeaderLogoS = HomePage.Value<MediaWithCrops>("headerLogoS");
+
+
 
 }
 
@@ -17,9 +23,9 @@
 					<div class="pbmit-logo-area-inner d-flex align-items-center justify-content-between">
 						<div class="site-branding">
 							<h1 class="site-title">
-								<a href="index-2.html">
-									<img class="pbmit-main-logo" src="~/images/logo-white.svg" alt="Induyst">
-									<img class="pbmit-sticky-logo" src="~/images/logo.svg" alt="Induyst">
+								<a href="@HomePage.Url()">
+									<img class="pbmit-main-logo" src="@HeaderLogoM?.MediaUrl()" alt="Induyst">
+									<img class="pbmit-sticky-logo" src="@HeaderLogoS?.MediaUrl()" alt="Induyst">
 								</a>
 							</h1>
 						</div>
@@ -46,7 +52,7 @@
 									</a>
 								</div>
 								<div class="pbmit-header-box pbmit-header-box-2">
-									<a href="#">
+									<a href="javascript:void(0);">
 										<span class="pbmit-header-box-icon">
 											<i class="pbmit-induyst-icon pbmit-induyst-icon-location-1"></i>
 										</span>
@@ -57,24 +63,24 @@
 									</a>
 								</div>
 								<div class="pbmit-header-box pbmit-header-box-3">
-									<a href="https://induyst-demo.pbminfotech.com/cdn-cgi/l/email-protection#0d6362207f687d61744d68756c607d6168236e6260">
+									<a href="mailto:@HomePage.Value("FooterEmail")">
 										<span class="pbmit-header-box-icon">
 											<i class="pbmit-induyst-icon pbmit-induyst-icon-mail"></i>
 										</span>
 										<span class="pbmit-box-content">
 											<span class="pbmit-header-box-title">Email address</span>
-											<span class="pbmit-header-box-content"><span class="__cf_email__" data-cfemail="0c6263217e697c60754c69746d617c6069226f6361">[email&#160;protected]</span></span>
+											<span class="pbmit-header-box-content"><span>@HomePage.Value("FooterEmail")</span></span>
 										</span>
 									</a>
 								</div>
 							</div>
 						</div>
 						<div class="pbmit-right-box d-flex align-items-center">
-							<div class="pbmit-header-search-btn">
+							@* <div class="pbmit-header-search-btn">
 								<a href="#" title="Search">
 									<i class="pbmit-base-icon-search-2"></i>
 								</a>
-							</div>
+							</div> *@
 							<div class="pbmit-burger-menu-wrapper">
 								<div class="pbmit-mobile-menu-bg"></div>
 								<button id="menu-toggle" class="nav-menu-toggle">
@@ -92,30 +98,45 @@
 							<div class="site-navigation">
 								<nav class="main-navigation pbmit-navbar main-menu navbar-expand-xl navbar-light" id="site-navigation">
 									<div>
-										
+
 										<ul class="navigation clearfix" id="pbmit-top-menu">
 
 
 											@if (!HomePage.Value<bool>("umbracoNaviHide"))
 											{
-											<li><a href="@HomePage.Url()">@(!(String.IsNullOrEmpty(HomePage.Value<String>("menuDisplayName"))) ? HomePage.Value("menuDisplayName") : HomePage.Name)</a></li>
+												<li><a href="@HomePage.Url()">@(!(String.IsNullOrEmpty(HomePage.Value<String>("menuDisplayName"))) ? HomePage.Value("menuDisplayName") : HomePage.Name)</a></li>
 											}
 
 											@foreach (var item in selection)
 											{
-											<li>
+												<li>
 													<a href="@item.Url()">@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? item.Value("menuDisplayName") : item.Name)</a>
 													@if (@item.Children.Where(x => x.IsVisible()).Any() && item.Name != "Blog")
 													{
 														<ul>
 															@foreach (var Child in item.Children.Where(x => x.IsVisible()))
 															{
-													<li class="dropdown"><a href="@Child.Url()">@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? Child.Value("menuDisplayName") : Child.Name)</a></li>
+																<li class="dropdown"><a href="@Child.Url()">@(!(String.IsNullOrEmpty(item.Value<String>("menuDisplayName"))) ? Child.Value("menuDisplayName") : Child.Name)</a></li>
 															}
 														</ul>
 													}
 												</li>
 											}
+											<li>
+												@if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName != "ar")
+												{
+													<a href="@Model.Url("ar", UrlMode.Relative)">
+														<span data-text="عربي">عربي</span>
+													</a>
+												}
+												else
+												{
+													<a href="@Model.Url("en-us", UrlMode.Relative)">
+														<span data-text="English">English</span>
+													</a>
+												}
+
+											</li>
 										</ul>
 
 									</div>
@@ -176,7 +197,7 @@
         <div class="control-group">
             <input id="key" name="key" type="text" class="search-field" placeholder="@Umbraco.GetDictionaryValue("Search")"
             value="@Context.Request.Query["key"]">
-            
+
         </div>
   </form>
 </div> *@

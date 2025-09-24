@@ -1,0 +1,100 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+@{
+	Layout = "masterTemplate.cshtml";
+	var HomePage = Model.Root();
+	var parent = Model.Parent;
+	var grandParent = Model.Parent?.Parent;
+
+	var ProductImage = Model.Value<MediaWithCrops>("productImage");
+
+
+}
+
+
+<!-- Title Bar -->
+<div class="pbmit-title-bar-wrapper">
+	<div class="container">
+		<div class="pbmit-title-bar-content">
+			<div class="pbmit-title-bar-content-inner">
+				<div class="pbmit-tbar">
+					<div class="pbmit-tbar-inner container">
+						<h3 class="pbmit-tbar-subtitle">@parent.Name</h3>
+						<h1 class="pbmit-tbar-title">@Model.Name</h1>
+					</div>
+				</div>
+				<div class="pbmit-breadcrumb">
+					<div class="pbmit-breadcrumb-inner">
+						<span>
+							<a title="" href="@HomePage.Url()" class="home"><span>@HomePage.Name</span></a>
+						</span>
+						<span class="sep"></span>
+						<span>
+							<a title="" href="@grandParent?.Url()"><span>@grandParent?.Name</span></a>
+						</span>
+						<span class="sep"></span>
+						<span>
+							<a title="" href="@parent.Url()"><span>@parent.Name</span></a>
+						</span>
+						<span class="sep"></span>
+						<span><span class="post-root post post-post current-item">@Model.Name</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Title Bar End-->
+<!-- Page Content -->
+<div class="page-content">
+
+	<!-- Single Detail Style 1 -->
+	<section class="site-content pbmit-portfolio-single-style-1">
+		<div class="container">
+			<article class="pbmit-portfolio-single">
+				<div class="pbmit-single-project-details-wrapper">
+					<div class="pbmit-single-project-details-list-wrapper">
+						<h3 class="pbmit-element-title1">@Model.Value("productSubTitle")</h3>
+						<div class="pbmit-short-description">
+							@Model.Value("productSummary")
+						</div>
+					</div>
+					<div class="pbmit-featured-img-wrapper">
+						<img src="@ProductImage?.MediaUrl()" class="img-fluid w-100" alt="@ProductImage?.Name">
+					</div>
+				</div>
+				<div class="pbmit-entry-content">
+					<div data-aos="fade-up" data-aos-duration="800">
+						<div class="pbmit-custom-heading">
+							<h3 class="pbmit-title">Best Industrial Project Detailing</h3>
+						</div>
+						<p>@Model.Value("productDesc")</p>
+						<div class="row">
+							@{
+								var typedMultiMediaPicker = Model.Value<IEnumerable<MediaWithCrops>>("productMedia");
+								foreach (var entry in typedMultiMediaPicker)
+								{
+
+									<div class="col-md-6">
+										<div class="pbmit-animation-style7 text-md-start text-center">
+											<img src="@entry?.MediaUrl()" class="pf-detail-img img-fluid" alt="@entry?.Name">
+										</div>
+									</div>
+								}
+							}
+
+							
+
+							
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+	<!-- Single Detail Style 1 End -->
+
+</div>
+<!-- Page Content End -->

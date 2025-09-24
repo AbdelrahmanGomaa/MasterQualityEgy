@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListModel>
+@{
+    if (Model?.Any() != true) { return; }
+
+    var parentId = "accordion-" + Guid.NewGuid().ToString("N"); 
+    var i = 0;
+}
+
+        <div class="accordion" id="@parentId">
+
+            @foreach (var block in Model)
+            {
+                if (block?.ContentUdi == null) { continue; }
+
+                @await Html.PartialAsync(
+                    "blocklist/Components/" + block.Content.ContentType.Alias,
+                    block,
+                    new ViewDataDictionary(ViewData)
+                    {
+                        { "ParentId", parentId },
+                        { "Index", i }
+                    }
+                )
+                i++;
+            }
+        </div>
+ 

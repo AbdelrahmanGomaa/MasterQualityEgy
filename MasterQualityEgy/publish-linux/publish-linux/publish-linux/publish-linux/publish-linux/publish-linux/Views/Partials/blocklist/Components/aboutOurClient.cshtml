@@ -1,0 +1,28 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+@{
+    var content = (ContentModels.AboutOurClient)Model.Content;
+         var AboutOurClientImage = content.Value<MediaWithCrops>("aboutOurClientImage");
+
+    
+}
+
+ <!-- Slide1 -->
+<article class="pbmit-client-style-1 swiper-slide">
+				<div class="pbmit-border-wrapper">
+					<div class="pbmit-client-wrapper pbmit-client-with-hover-img">
+						<h4 class="pbmit-hide">@content.Value("aboutOurClientName")</h4>
+						<div class="pbmit-client-hover-img">
+							<img src="@AboutOurClientImage?.MediaUrl()" alt="@content.Value("aboutOurClientName")">
+						</div>
+						<div class="pbmit-featured-img-wrapper">
+							<div class="pbmit-featured-wrapper">
+								<img src="@AboutOurClientImage?.MediaUrl()" class="img-fluid" alt="@content.Value("aboutOurClientName")">
+							</div>
+						</div>
+					</div>
+				</div>
+</article>
