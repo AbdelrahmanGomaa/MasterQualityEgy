@@ -1011,6 +1011,17 @@ aside.widget.widget-tag-cloud a,
 	top: inherit;
 }
 
+
+.pbmit-portfolio-single-style-1 .pbmit-portfolio-single .pbmit-featured-img-wrapper img {
+	height: 100%;
+	object-fit: cover;
+}
+
+.pbmit-portfolio-single-style-1 .pbmit-portfolio-single .pbmit-featured-img-wrapper {
+	height: 500px;
+}
+
+
 .pbmit-ihbox-style-10 .pbmit-element-title {
 	font-size: 24px;
 	line-height: 30px;
@@ -1223,29 +1234,36 @@ aside.widget.widget-tag-cloud a,
 	position: relative;
 }
 
-	.pbmit-team-style-1 .pbmit-featured-inner .pbmit-link {
-		z-index: 0;
-	}
+.pbmit-team-style-1 .pbmit-featured-wrapper {
+	position: relative;
+	height: 240px;
+}
 
-	.pbmit-team-style-1 .pbmit-featured-wrapper img {
-		width: 100%;
-		border-radius: 10px;
-		transition: all .3s ease-out;
-	}
+.pbmit-team-style-1 .pbmit-featured-inner .pbmit-link {
+	z-index: 0;
+}
 
-	.pbmit-team-style-1 .pbmit-featured-wrapper::after {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(-135deg, rgba(var(--pbmit-global-color-rgb), 0) 0%, rgba(var(--pbmit-global-color-rgb), 0.2) 65%, rgba(var(--pbmit-global-color-rgb), 1) 100%);
-		content: "";
-		z-index: 0;
-		opacity: 0;
-		transition: all 300ms ease;
-		visibility: hidden;
-	}
+.pbmit-team-style-1 .pbmit-featured-wrapper img {
+	width: 100%;
+	border-radius: 10px;
+	transition: all .3s ease-out;
+	height: 100%;
+	object-fit: cover;
+}
+
+.pbmit-team-style-1 .pbmit-featured-wrapper::after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(-135deg, rgba(var(--pbmit-global-color-rgb), 0) 0%, rgba(var(--pbmit-global-color-rgb), 0.2) 65%, rgba(var(--pbmit-global-color-rgb), 1) 100%);
+	content: "";
+	z-index: 0;
+	opacity: 0;
+	transition: all 300ms ease;
+	visibility: hidden;
+}
 
 .pbmit-team-style-1:hover .pbmit-featured-wrapper img {
 	filter: grayscale(100%);
@@ -2446,7 +2464,7 @@ aside.widget.widget-tag-cloud a,
 	color: var(--pbmit-blackish-color);
 }
 
-section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pbmit-testimonial-style-1 .pbminfotech-testimonial-text {
+section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pbmit-testimonial-style-1 .pbminfotech-testimonial-text, section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pbmit-testimonial-style-1 .pbminfotech-testimonial-text, section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pbmit-testimonial-style-1 h3, section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pbmit-testimonial-style-1 .pbminfotech-testimonial-text, section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pbmit-testimonial-style-1 .pbminfotech-box-star-ratings .pbmit-active {
 	color: #fff;
 }
 
@@ -2888,7 +2906,7 @@ section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pb
 }
 
 .pbmit-footer-style-1 .pbmit-footer-social-area ul {
-	text-align: right;
+	text-align: center;
 	font-size: 16px;
 }
 
@@ -3930,6 +3948,7 @@ section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pb
 	.pbmit-portfolio-style-1 .pbmit-featured-wrapper {
 		position: relative;
 		overflow: hidden;
+		height: 270px;
 	}
 
 		.pbmit-portfolio-style-1 .pbmit-featured-wrapper img {
@@ -3938,6 +3957,8 @@ section.testimonial-section-one.pbmit-bg-color-blackish.aos-init.aos-animate .pb
 			transform-origin: 90% 50%;
 			border-radius: 10px;
 			transition: transform 1.2s cubic-bezier(.4, .01, .14, .99);
+			height: 100%;
+			object-fit: cover;
 		}
 
 	.pbmit-portfolio-style-1:hover .pbmit-featured-wrapper img {
@@ -4195,7 +4216,7 @@ section.contact-us-section.fade-section.visible a:hover {
 }
 
 section.contact-us-section.fade-section.visible a {
-	color: #fff;
+	color: #ffffff99;
 }
 
 section.contact-us-section.fade-section.visible .row {
@@ -4227,4 +4248,12 @@ ul.pagination.justify-content-center li {
 .workspaces-count {
 	text-align: center;
 	margin-top: 20px;
+}
+
+
+.pbmit-entry-content img {
+	width: 100%;
+	height: 350px;
+	margin: 11px;
+	object-fit: cover;
 }

@@ -1,0 +1,582 @@
+body {
+    font-family: var(--pbmit-body-typography-font-family);
+    font-weight: var(--pbmit-body-typography-variant);
+    color: var(--pbmit-body-typography-color);
+    font-size: var(--pbmit-body-typography-font-size);
+    line-height: var(--pbmit-body-typography-line-height);
+    color: var(--pbmit-body-typography-color);
+    text-transform: none;
+    font-style: normal;
+    direction: rtl;
+}
+
+
+.main-menu .navigation > li {
+    position: relative;
+    float: right;
+    margin: 0px;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.site-header .pbmit-header-box .pbmit-header-box-icon {
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.pbmit-header-style-1 .pbmit-header-text-box a > i::before {
+    transform: rotate(180deg);
+}
+
+.pbmit-header-style-1 .pbmit-header-text-box a > i {
+    font-size: 30px;
+    line-height: normal;
+    margin-left: auto;
+    margin-right: 5px;
+    position: relative;
+    top: 6px;
+}
+
+
+.pbmit-btn .pbmit-button-content-wrapper:before {
+    content: '';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: calc(100% - 10px);
+    line-height: 45px;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    top: 5px;
+    text-align: center;
+    font-family: "pbminfotech-base-icons";
+    left: auto;
+    right: 5px;
+    transition: all .4s ease-in-out;
+    background-color: var(--pbmit-white-color);
+}
+
+
+.pbmit-btn .pbmit-button-icon {
+    overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    left: -10px;
+    align-items: center;
+    transform: rotate(180deg);
+}
+
+.pbmit-btn .pbmit-button-icon {
+    overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    left: auto;
+    right: -10px;
+    align-items: center;
+    transform: rotate(180deg);
+}
+
+.pbmit-btn .pbmit-button-text {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    justify-content: center;
+    overflow: hidden;
+    line-height: 22px;
+    color: transparent;
+    text-shadow: 0 0 #16222d, 0 22px #16222d;
+    transition: text-shadow 0.5s ease-in-out;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.pbmit-slider-area .swiper-button-next:after {
+    transform: rotate(180deg);
+}
+
+
+.pbmit-slider-area .swiper-button-next, .pbmit-slider-area .swiper-button-prev {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    border: none;
+    right: auto;
+    left: 40px;
+    top: 45%;
+}
+
+.pbmit-slider-area .swiper-button-next {
+    top: 55%;
+}
+
+.justify-content-end {
+    justify-content: flex-start !important;
+}
+
+
+.d-lg-flex.align-items-center.justify-content-end {
+    margin-right: 20px;
+}
+
+.pbmit-heading-subheading .pbmit-subtitle:before{
+    content: '';
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: auto;
+    margin-left: 6px;
+    background-color: var(--pbmit-global-color);
+}
+
+
+.pbmit-service-style-1 .pbmit-service-icon-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    padding: 0px 8px 8px 0px;
+    border-radius: 10px 0px 10px 0px;
+    background-color: var(--pbmit-white-color);
+}
+
+    .pbmit-service-style-1 .pbmit-service-icon-wrapper::after {
+        right: calc(100% - 20px);
+        top: 100%;
+        border-top-left-radius: 10px;
+        left: auto;
+        border-top-right-radius: 0;
+    }
+
+
+    .pbmit-service-style-1 .pbmit-service-icon-wrapper::before {
+        left: 100%;
+        right: auto;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 0;
+    }
+
+
+.pbmit-service-style-1 .pbmit-service-btn i {
+    font-size: 30px;
+    line-height: 30px;
+/*    transform: rotate(180deg);*/
+}
+
+.pbmit-bottom-text.text-center.mt-5.pt-md-2 {
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    justify-content: center;
+}
+
+
+
+.pbmit-ihbox-style-1 .pbmit-ihbox-icon-wrapper, .pbmit-ihbox-style-1 .pbmit-ihbox-svg-wrapper {
+    font-size: 42px;
+    margin-left: 25px;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    color: var(--pbmit-blackish-color);
+    background-color: rgba(var(--pbmit-blackish-bg-color-rgb), 0.10);
+    fill: var(--pbmit-blackish-color);
+}
+
+
+
+.list-group .pbmit-icon-list-text {
+    padding-right: 5px;
+    padding-left: 0;
+    color: var(--pbmit-blackish-color);
+    align-self: center;
+    transition: color 0.3s;
+}
+
+.pbmit-btn-style-text:after{
+    content: '\e82d';
+    left: 0;
+    right: auto;
+    position: absolute;
+    font-size: 30px;
+    line-height: 30px;
+    font-family: 'pbminfotech-base-icons';
+    transform: rotate(180deg);
+}
+
+
+.pbmit-btn-style-text{
+    position: relative;
+    padding-left: 42px;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+.about-one-left-bg {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+
+.pbminfotech-ele-fid-style-2 .pbmit-heading-desc {
+    margin: 0 25px 0 0;
+    font-size: 18px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+.pbminfotech-ele-fid-style-3 .pbmit-fid-icon-wrapper, .pbminfotech-ele-fid-style-3 .pbmit-fid-svg-wrapper {
+    font-size: 50px;
+    margin-left: 25px;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    color: var(--pbmit-blackish-color);
+    background-color: rgba(var(--pbmit-blackish-color-rgb), 0.10);
+    fill: var(--pbmit-blackish-color);
+    z-index: 1;
+}
+
+
+.pbmit-testimonial-style-1 .pbminfotech-post-item {
+    position: relative;
+    padding-right: 112px;
+    padding-left: 0;
+}
+
+
+    .pbmit-testimonial-style-1 .pbminfotech-post-item::before {
+        content: '\e81c';
+        position: absolute;
+        font-family: 'pbminfotech-base-icons';
+        font-size: 25px;
+        top: 5px;
+        right: 0;
+        width: 75px;
+        height: 75px;
+        line-height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        color: var(--pbmit-blackish-color);
+        background-color: var(--pbmit-light-color);
+    }
+
+.pbmit-testimonial-style-1 .pbminfotech-testimonial-text {
+    font-size: 20px;
+    line-height: 34px;
+    font-weight: 400;
+    margin: 0 0 25px 0;
+    padding: 0 0 0 25px;
+    border: 0;
+    color: var(--pbmit-blackish-color);
+}
+
+
+
+.pbmit-testimonial-style-1 .pbmit-featured-img-wrapper {
+    margin-left: 25px;
+    margin-right: 0;
+}
+
+
+
+.testimonial-section-one .testimonial-area .right-box {
+    padding: 25px 100px;
+    margin-right: 48px;
+    margin-left: 0;
+    border-right: 1px solid #FFFFFF33;
+    border-left: none;
+}
+
+
+
+.accordion-section-one .accordion-img {
+    border-radius: 0 10px 10px 0;
+}
+
+
+.pbmit-base-icon-right-arrow:before {
+    content: '\e82d';
+    transform: rotate(180deg);
+}
+
+
+.pbmit-footer-style-1 .pbmit-footer-contact-area .pbmit-footer-contact-box:not(:last-child) {
+    border-left: 1px solid rgba(var(--pbmit-white-color-rgb), 0.2);
+    border-right: none;
+}
+
+.about-two-content .inner-box {
+    background-color: var(--pbmit-white-color);
+    border-radius: 0 10px 0 0;
+    padding: 55px 40px 0 0;
+    margin: -35px -100px 0 0;
+    position: relative;
+}
+
+
+.about-two-img:after {
+    right: calc(100% - 96px);
+    top: auto;
+    left: 0;
+    bottom: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0;
+}
+
+.about-two-content .inner-box .swiper-slider .swiper-button-next{
+    left: 100px;
+    background: transparent;
+    transform: rotate(0deg);
+}
+
+
+
+.about-us-two-rightbox .pbmit-custom-heading {
+    padding-left: 40%;
+    padding-right: 0;
+}
+
+.about-us-two-leftbox .pbmit-custom-heading {
+    padding-left: 50%;
+    padding-right: 0;
+}
+
+.pbminfotech-ele-fid-style-4 .pbmit-fid-inner{
+    font-size: 96px;
+    line-height: 85px;
+    margin-bottom: 0;
+    color: var(--pbmit-blackish-color);
+    font-family: var(--pbmit-heading-typography-font-family);
+    font-weight: 600;
+    display: flex;
+}
+
+
+.testimonial-two-leftbox {
+    border-radius: 0 10px 10px 0;
+    margin-left: 50px;
+    margin-right: 0;
+}
+
+
+
+.testimonial-section-two.pbmit-bg-color-light .swiper-button-next:after, .testimonial-section-two.pbmit-bg-color-light .swiper-button-prev:after {
+    content: "\e814" !important;
+    font-family: "pbminfotech-base-icons";
+    font-size: 22px;
+    line-height: normal;
+}
+
+.testimonial-section-two.pbmit-bg-color-light .swiper-button-prev {
+    right: auto !important;
+    left: 60px !important;
+    margin: 0 12px;
+    transform: rotate(0deg);
+}
+
+.pbmit-title-bar-content .pbmit-tbar:before, .pbmit-title-bar-content .pbmit-tbar:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    right: 5px;
+    left: 0;
+}
+
+
+
+.service-details .all-post-list li a:before {
+    position: absolute;
+    content: "";
+    height: 6px;
+    width: 6px;
+    right: 20px;
+    left: 0;
+    font-size: 12px;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    background-color: var(--pbmit-global-color);
+    transition: all 0.4s ease-in;
+    font-weight: 500;
+}
+
+.service-details .all-post-list li a:after {
+    left: 5px;
+    right: auto;
+    transform: rotate(180deg);
+}
+
+
+.sidebar .widget .widget-title {
+    padding: 13px 45px 13px 20px;
+    position: relative;
+    background-color: var(--pbmit-white-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+    .sidebar .widget .widget-title:before {
+        content: "";
+        position: absolute;
+        right: 23px;
+        left: auto;
+        top: 50%;
+        height: 7px;
+        width: 7px;
+        background-color: var(--pbmit-global-color);
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+
+.widget .pbmit-item-download .pbmit-download-wrap .pbmit-download-title {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 0 15px 0 0;
+    margin-bottom: 0px;
+    color: var(--pbmit-blackish-color);
+    font-weight: 500;
+    letter-spacing: 0.32px;
+}
+
+
+.pbmit-blog-style-1 .pbmit-meta-wraper {
+
+    transform: translate(-8px, -8px);
+
+}
+
+
+.pbmit-blog-style-1 .pbmit-meta-date-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: auto;
+    z-index: 1;
+}
+
+
+ul.pagination.justify-content-center li a i {
+    margin: 0 7px;
+    transform: rotate(180deg);
+}
+
+ul.pagination.justify-content-center li a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.widget-recent-post .recent-post-list-li > a {
+    width: 80px;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: auto;
+}
+
+
+
+.form-control {
+    text-align: right;
+}
+
+
+.contact-form-right-box .pbmit-social-links-bg .pbmit-social-links li:not(:last-child) {
+    padding: 0 0 0 5px;
+}
+
+
+
+.pbminfotech-gap-20px .pbmit-miconheading-style-7 {
+    margin-bottom: 20px;
+    height: 225px;
+}
+
+
+
+.pbmit-header-style-1 .pbmit-header-text-box {
+    position: relative;
+    flex: 1;
+    margin-right: 20px;
+    margin-left: auto;
+    color: rgba(var(--pbmit-white-color-rgb), .7);
+}
+
+
+    .pbmit-header-style-1 .pbmit-header-text-box:before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 30px;
+        margin-left: 20px;
+        margin-right: auto;
+        position: relative;
+        top: 6px;
+        background-color: rgba(var(--pbmit-white-color-rgb), .2);
+    }
+
+.pbmit-footer-copyright-text-area.left {
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+/*.d-flex {
+    display: flex !important;
+    flex-direction: row-reverse;
+}
+
+
+
+
+
+
+.site-header .pbmit-header-info-inner .pbmit-header-box, .site-header .pbmit-header-info-inner .pbmit-header-box a {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+
+.site-header .pbmit-header-box span {
+    display: block;
+    text-align: right;
+}
+
+*/

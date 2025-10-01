@@ -1,0 +1,154 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+	Layout = null;
+
+	var Lang = "en";
+	if (System.Threading.Thread.CurrentThread.CurrentCulture.DisplayName.ToLower() != "english")
+	{
+		Lang = "ar";
+	}
+}
+
+<!DOCTYPE html>
+<html lang="@Lang">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fav Icon -->
+    
+	<link rel="icon" type="image/x-icon" href="~/masterfevicon.png">
+
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Master Quality – CNC Cutting and Metal Bending</title>
+	<meta name="robots" content="noindex, follow">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/Masterfevicon.png">
+	<!-- CSS
+		============================================ -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true">
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="~/css/fontawesome.css" asp-append-version="true">
+	<!-- Pbmit Induyst Icon -->
+	<link rel="stylesheet" href="~/fonts/pbmit-induyst-icon/pbmit_induyst.css" asp-append-version="true">
+	<!-- Base Icons -->
+	<link rel="stylesheet" href="~/css/pbminfotech-base-icons.css" asp-append-version="true">
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="~/css/themify-icons.css" asp-append-version="true">
+	<!-- Slick -->
+	<link rel="stylesheet" href="~/css/swiper.min.css" asp-append-version="true">
+	<!-- Magnific -->
+	<link rel="stylesheet" href="~/css/magnific-popup.css" asp-append-version="true">
+	<!-- AOS -->
+	<link rel="stylesheet" href="~/css/aos.css" asp-append-version="true">
+	<!-- Shortcode CSS -->
+	<link rel="stylesheet" href="~/css/shortcode.css" asp-append-version="true">
+	<!-- Base CSS -->
+	<link rel="stylesheet" href="~/css/base.css" asp-append-version="true">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="~/css/responsive.css" asp-append-version="true">
+
+
+
+	@await Html.PartialAsync("Generic/SEO")
+
+	@RenderSection("Style", false)
+
+</head>
+
+<body>
+	<!-- page wrapper -->
+	<div class="page-wrapper" id="page">
+
+		@await Html.PartialAsync("Generic/Header")
+
+		@RenderBody()
+
+		@await Html.PartialAsync("Generic/Footer")
+	</div>
+	@RenderSection("Script", false)
+
+	<!-- Search Box Start Here -->
+	<div class="pbmit-header-search-form">
+		<div class="pbmit-search-overlay"></div>
+		<div class="pbmit-header-search-form-wrapper">
+			<div class="pbmit-search-close">
+				<svg class="qodef-svg--close qodef-m" xmlns="http://www.w3.org/2000/svg" width="28.163" height="28.163" viewBox="0 0 26.163 26.163">
+					<rect width="36" height="1" transform="translate(0.707) rotate(45)"></rect>
+					<rect width="36" height="1" transform="translate(0 25.456) rotate(-45)"></rect>
+				</svg>
+			</div>
+			<form role="search" method="get" class="search-form" action="https://induyst-demo.pbminfotech.com/html-demo/index.html">
+				<input type="search" id="search-form-686df462a6c62" class="search-field" placeholder="Search …" value="" name="s">
+				<button type="submit" class="search-submit " title="Search"></button>
+				<div class="pbmit-search-line"></div>
+			</form>
+		</div>
+	</div>
+	<!-- Search Box End Here -->
+	<!-- Scroll To Top -->
+	<div class="pbmit-backtotop">
+		<div class="pbmit-arrow">
+			<i class="pbmit-base-icon-up-open-big"></i>
+		</div>
+		<div class="pbmit-hover-arrow">
+			<i class="pbmit-base-icon-up-open-big"></i>
+		</div>
+	</div>
+	<!-- Scroll To Top End -->
+	<!-- JS
+	============================================ -->
+	<!-- jQuery JS -->
+	<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+	<script src="~/js/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="~/js/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="~/js/bootstrap.min.js"></script>
+	<!-- jquery Waypoints JS -->
+	<script src="~/js/jquery.waypoints.min.js"></script>
+	<!-- jquery Appear JS -->
+	<script src="js/jquery.appear.js"></script>
+	<!-- Numinate JS -->
+	<script src="~/js/numinate.min.js"></script>
+	<!-- Slick JS -->
+	<script src="~/js/swiper.min.js"></script>
+	<!-- Magnific JS -->
+	<script src="~/js/jquery.magnific-popup.min.js"></script>
+	<!-- Circle Progress JS -->
+	<script src="~/js/circle-progress.js"></script>
+	<!-- countdown JS -->
+	<script src="~/js/jquery.countdown.min.js"></script>
+	<!-- AOS -->
+	<script src="~/js/aos.js"></script>
+	<!-- GSAP -->
+	<script src='~/js/gsap.js'></script>
+	<!-- Scroll Trigger -->
+	<script src='~/js/ScrollTrigger.js'></script>
+	<!-- Split Text -->
+	<script src='~/js/SplitText.js'></script>
+	<!-- Theia Sticky Sidebar JS -->
+	<script src='~/js/theia-sticky-sidebar.js'></script>
+	<!-- GSAP Animation -->
+	<script src='~/js/gsap-animation.js'></script>
+	<!-- Scripts JS -->
+	<script src="~/js/scripts.js"></script>
+
+	<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97347b762882cdcc',t:'MTc1NTg4Nzg1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../cdn-cgi/challenge-platform/h/b/scripts/jsd/4710d66e8fda/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+	<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"97347b762882cdcc","version":"2025.8.0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"125856bf84ab44059737e93b01aa0fef","b":1}' crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.AboutFaq)Model.Content;
+
+    var parentId = (string?)ViewData["ParentId"] ?? "accordion-default";
+    var index = (int?)(ViewData["Index"]) ?? 0;
+
+    var baseId = $"{parentId}-{index}";
+    var headingId = $"heading-{baseId}";
+    var collapseId = $"collapse-{baseId}";
+
+    var isFirst = index == 0; 
+}
+
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="@headingId">
+            <button class="accordion-button @(isFirst ? "" : "collapsed")"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#@collapseId"
+                aria-expanded="@(isFirst ? "true" : "false")"
+                aria-controls="@collapseId">
+            @content.Value("aboutFAQTitle")
+        </button>
+        </h2>
+        <div id="@collapseId"
+         class="accordion-collapse collapse @(isFirst ? "show" : "")"
+         aria-labelledby="@headingId"
+         data-bs-parent="#@parentId">
+            <div class="accordion-body">
+                @content.Value("aboutFAQAnswer")
+            </div>
+        </div>
+    </div>

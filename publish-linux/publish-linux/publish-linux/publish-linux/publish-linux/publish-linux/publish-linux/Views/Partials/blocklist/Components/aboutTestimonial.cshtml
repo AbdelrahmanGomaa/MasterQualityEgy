@@ -1,0 +1,36 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+@{
+         var content = (ContentModels.AboutTestimonial)Model.Content;
+		 var AboutTestimonialWriterImage = content.Value<MediaWithCrops>("aboutTestimonialWriterImage");
+}
+
+<!-- Slide1 -->
+<article class="pbmit-testimonial-style-1 swiper-slide">
+				<div class="pbminfotech-post-item">
+								<blockquote class="pbminfotech-testimonial-text">
+									<p>@content.Value("aboutTestimonialDesc")</p>
+								</blockquote>
+								<div class="pbminfotech-box-star-ratings">
+									<i class="pbmit-base-icon-star pbmit-active"></i>
+									<i class="pbmit-base-icon-star pbmit-active"></i>
+									<i class="pbmit-base-icon-star pbmit-active"></i>
+									<i class="pbmit-base-icon-star pbmit-active"></i>
+									<i class="pbmit-base-icon-star pbmit-active"></i>
+								</div>
+								<div class="pbminfotech-box-author">
+									<div class="pbmit-featured-img-wrapper">
+										<div class="pbmit-featured-wrapper">
+											<img src="@AboutTestimonialWriterImage?.MediaUrl()" class="img-fluid" alt="@AboutTestimonialWriterImage?.Name">
+										</div>
+									</div>
+									<div class="pbmit-auther-content">
+										<h3 class="pbminfotech-box-title">@content.Value("aboutTestimonialName")</h3>
+										<div class="pbminfotech-testimonial-detail">@content.Value("aboutTestimonialPostion")</div>
+									</div>
+								</div>
+				</div>
+</article>

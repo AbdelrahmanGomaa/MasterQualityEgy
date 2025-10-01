@@ -1,0 +1,115 @@
+﻿@using MasterQuality.Models;
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@using Umbraco.Cms.Web.Common;
+@using Umbraco.Extensions
+@using MasterQuality
+@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Web.Common.Views
+@using Umbraco.Cms.Core.Models.PublishedContent
+
+@using MasterQuality.Controllers
+@using Umbraco.Cms.Core.Models
+@model MasterQuality.Models.ContactFormViewModel
+
+@inject UmbracoHelper umbracoHelper
+
+@{
+    var successMessage = ViewBag.SuccessMessage as string;
+    var modelState = TempData["ModelState"] as ModelStateDictionary;
+    var contactFormModel = TempData["ContactFormModel"] as ContactFormViewModel;
+}
+
+<div class="form-wrapper">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            Please fix the errors below.
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    else
+    {
+        @using (Html.BeginUmbracoForm<ContactFormController>(nameof(ContactFormController.SubmitAsync), null, new { @class = "was-validated" }))
+        {
+
+            @if (modelState != null && contactFormModel != null)
+            {
+                <div class="alert alert-success contact-success-message"
+                     role="alert">
+                    Thank You! Your message has been sent.
+                </div>
+            }
+            
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                    <input asp-for="Name"
+                           class="form-control form--control"
+                           placeholder="Full Name *" aria-label="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                    <input asp-for="Email"
+                           pattern="[A-Za-z0-9._%+-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                           class="form-control"
+                           placeholder="Your Email *"
+                           type="email" aria-label="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                    <input asp-for="PhoneNumber"
+                           pattern="^(\+?\d{10,15}|0\d{10})$"
+                           class="form-control"
+                           placeholder="Your Phone *"
+                           type="tel" />
+
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                    <input asp-for="Subject"
+                           class="form-control form--control"
+                           placeholder="Subject *" />
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                    <textarea asp-for="Message"
+                              class="form-control form--control ps-4"
+                              rows="5"
+                              placeholder="How can we Help you ?"></textarea>
+                    </div>
+                    @* 							<div class="col-md-12">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox">
+									<label class="form-check-label">Save my name, email, and website in this browser for the next time I comment.</label>
+								</div>
+							</div>
+ *@						</div>
+                <button class="pbmit-btn">
+                    <span class="form-btn-loader d-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><circle fill="#fff" stroke="#fff" stroke-width="15" r="15" cx="40" cy="50"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#fff" stroke="#fff" stroke-width="15" r="15" cx="100" cy="50"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#fff" stroke="#fff" stroke-width="15" r="15" cx="160" cy="50"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
+                    </span>
+                    <span class="pbmit-button-content-wrapper">
+                        <span class="pbmit-button-icon">
+                            <i class="pbmit-induyst-icon pbmit-induyst-icon-next"></i>
+                        </span>
+                        <span class="pbmit-button-text">Send a Message</span>
+                    </span>
+                </button>
+                <div class="col-md-12 col-lg-12 message-status mt-3"></div>
+
+
+
+
+
+
+
+        }
+    }
+</div>
